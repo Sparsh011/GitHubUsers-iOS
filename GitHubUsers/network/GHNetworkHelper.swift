@@ -15,11 +15,29 @@ class GHNetworkHelper {
         method: String,
         headers: [String: String]? = nil,
         bodyParams: [String: Any]? = nil,
+        requestParams: [String: Any]? = nil,
         baseUrl: String,
         apiRoute: String,
         completion: @escaping NetworkCompletion
     ) {
-        var request = URLRequest(url: URL(string: baseUrl + apiRoute)!)
+        var urlComponents = URLComponents(string: baseUrl + apiRoute)
+        
+        if let requestParams = requestParams {
+            var queryItems = [URLQueryItem]()
+            for (key, value) in requestParams {
+                if let valueString = value as? String {
+                    queryItems.append(URLQueryItem(name: key, value: valueString))
+                }
+            }
+            urlComponents?.queryItems = queryItems
+        }
+        
+        guard let url = urlComponents?.url else {
+            completion(nil, nil, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+            return
+        }
+        
+        var request = URLRequest(url: url)
         request.httpMethod = method
         
         if let headers = headers {

@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		39E2D084181904C0D43837EF /* Pods_GHFollowersSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A10F7FF0DEAA846168920CF /* Pods_GHFollowersSA.framework */; };
+		541A473F2B98ACE800D0F7DD /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */; };
 		542C603C2B8A3EBE00ADD718 /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */; };
 		542C603E2B8A480400ADD718 /* GitHubFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603D2B8A480400ADD718 /* GitHubFollower.swift */; };
+		54820C992B933CE100020897 /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C982B933CE100020897 /* UtilFunctions.swift */; };
+		54820C9B2B934BF800020897 /* YourProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C9A2B934BF800020897 /* YourProfileVC.swift */; };
 		54B76BDF2B7402D00031A873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BDE2B7402D00031A873 /* AppDelegate.swift */; };
 		54B76BE12B7402D00031A873 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BE02B7402D00031A873 /* SceneDelegate.swift */; };
 		54B76BE32B7402D00031A873 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BE22B7402D00031A873 /* SearchVC.swift */; };
@@ -32,8 +35,11 @@
 
 /* Begin PBXFileReference section */
 		4A10F7FF0DEAA846168920CF /* Pods_GHFollowersSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHFollowersSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		542C603D2B8A480400ADD718 /* GitHubFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollower.swift; sourceTree = "<group>"; };
+		54820C982B933CE100020897 /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
+		54820C9A2B934BF800020897 /* YourProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileVC.swift; sourceTree = "<group>"; };
 		54B76BDB2B7402D00031A873 /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B76BDE2B7402D00031A873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54B76BE02B7402D00031A873 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				54B76BF42B74067B0031A873 /* FavouritesVC.swift */,
 				54CD9B0A2B861C0E002C3DBA /* UserProfileVC.swift */,
 				542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */,
+				54820C9A2B934BF800020897 /* YourProfileVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				54B76BFB2B740BB40031A873 /* Constants.swift */,
+				54820C982B933CE100020897 /* UtilFunctions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 			children = (
 				54CD9B042B853406002C3DBA /* GHNetworkHelper.swift */,
 				54DA8F4E2B8766D1002E25BB /* ResponseDelegate.swift */,
+				541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 			files = (
 				54DA8F512B87DC5E002E25BB /* CustomToast.swift in Sources */,
 				54B76BE32B7402D00031A873 /* SearchVC.swift in Sources */,
+				541A473F2B98ACE800D0F7DD /* AccessTokenResponse.swift in Sources */,
 				54CD9B052B853406002C3DBA /* GHNetworkHelper.swift in Sources */,
 				54B76BDF2B7402D00031A873 /* AppDelegate.swift in Sources */,
 				54B76BF52B74067B0031A873 /* FavouritesVC.swift in Sources */,
@@ -321,6 +331,8 @@
 				54B76BE12B7402D00031A873 /* SceneDelegate.swift in Sources */,
 				54B76BF92B7407C90031A873 /* GHFTextField.swift in Sources */,
 				54CD9B092B861753002C3DBA /* GitHubUser.swift in Sources */,
+				54820C992B933CE100020897 /* UtilFunctions.swift in Sources */,
+				54820C9B2B934BF800020897 /* YourProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
