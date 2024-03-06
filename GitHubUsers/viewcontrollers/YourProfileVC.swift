@@ -39,35 +39,6 @@ class YourProfileVC: UIViewController {
         loginButton.addTarget(self, action: #selector(startLoginWithGithub), for: .touchUpInside)
     }
     
-    func fetchData() {
-        let url = URL(string: "https://api.github.com/user")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Bearer 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", forHTTPHeaderField: "Authorization")
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, let httpResponse = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-
-            if httpResponse.statusCode == 200 {
-                // Parse and handle the response data
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print("Response JSON: \(json)")
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                }
-            } else {
-                print("HTTP status code: \(httpResponse.statusCode)")
-            }
-        }
-
-        task.resume()
-    }
-
-    
     @objc func startLoginWithGithub() {
         if let url = URL(string: "https://github.com/login/oauth/authorize?client_id=1c91fdb72c57a551a942") {
             UIApplication.shared.open(url)
