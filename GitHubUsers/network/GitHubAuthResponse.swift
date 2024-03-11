@@ -7,13 +7,13 @@
 
 import Foundation
 
-//struct AccessTokenResponse: Codable {
-//    let accessToken: String
-//    let tokenType: String
-//    let scope: String
-//}
-
 struct GitHubAuthResponse: Codable {
+    let isTokenValid: Bool
+    let accessToken: String?
+    let userDetails: GitHubAuthProfile?
+}
+
+struct GitHubAuthProfile: Codable {
     let login: String
     let id: Int
     let nodeId: String
@@ -46,4 +46,3 @@ struct GitHubAuthResponse: Codable {
     let createdAt: String
     let updatedAt: String
 }
-

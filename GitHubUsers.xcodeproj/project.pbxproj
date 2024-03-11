@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39E2D084181904C0D43837EF /* Pods_GHFollowersSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A10F7FF0DEAA846168920CF /* Pods_GHFollowersSA.framework */; };
-		541A473F2B98ACE800D0F7DD /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */; };
+		541A473F2B98ACE800D0F7DD /* GitHubAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A473E2B98ACE800D0F7DD /* GitHubAuthResponse.swift */; };
 		542C603C2B8A3EBE00ADD718 /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */; };
 		542C603E2B8A480400ADD718 /* GitHubFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603D2B8A480400ADD718 /* GitHubFollower.swift */; };
 		54820C992B933CE100020897 /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C982B933CE100020897 /* UtilFunctions.swift */; };
@@ -31,11 +31,12 @@
 		54E333F42B90AB1A00FF52B4 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E333F32B90AB1A00FF52B4 /* loader.json */; };
 		54E333F72B90B5A800FF52B4 /* GHUserFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */; };
 		54E333F92B90B5BA00FF52B4 /* GHUserFieldHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */; };
+		54EEFEA82B9F32AD005737E1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFEA72B9F32AD005737E1 /* KeychainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A10F7FF0DEAA846168920CF /* Pods_GHFollowersSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHFollowersSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
+		541A473E2B98ACE800D0F7DD /* GitHubAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAuthResponse.swift; sourceTree = "<group>"; };
 		542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		542C603D2B8A480400ADD718 /* GitHubFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollower.swift; sourceTree = "<group>"; };
 		54820C982B933CE100020897 /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		54E333F32B90AB1A00FF52B4 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserFieldValue.swift; sourceTree = "<group>"; };
 		54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserFieldHeader.swift; sourceTree = "<group>"; };
+		54EEFEA72B9F32AD005737E1 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		B1B2EF5E224A6FAAACCEB836 /* Pods-GHFollowersSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHFollowersSA.release.xcconfig"; path = "Target Support Files/Pods-GHFollowersSA/Pods-GHFollowersSA.release.xcconfig"; sourceTree = "<group>"; };
 		F33CEB31946875520D3465C2 /* Pods-GHFollowersSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHFollowersSA.debug.xcconfig"; path = "Target Support Files/Pods-GHFollowersSA/Pods-GHFollowersSA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			children = (
 				54B76BFB2B740BB40031A873 /* Constants.swift */,
 				54820C982B933CE100020897 /* UtilFunctions.swift */,
+				54EEFEA72B9F32AD005737E1 /* KeychainHelper.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -176,7 +179,7 @@
 			children = (
 				54CD9B042B853406002C3DBA /* GHNetworkHelper.swift */,
 				54DA8F4E2B8766D1002E25BB /* ResponseDelegate.swift */,
-				541A473E2B98ACE800D0F7DD /* AccessTokenResponse.swift */,
+				541A473E2B98ACE800D0F7DD /* GitHubAuthResponse.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -315,8 +318,9 @@
 			files = (
 				54DA8F512B87DC5E002E25BB /* CustomToast.swift in Sources */,
 				54B76BE32B7402D00031A873 /* SearchVC.swift in Sources */,
-				541A473F2B98ACE800D0F7DD /* AccessTokenResponse.swift in Sources */,
+				541A473F2B98ACE800D0F7DD /* GitHubAuthResponse.swift in Sources */,
 				54CD9B052B853406002C3DBA /* GHNetworkHelper.swift in Sources */,
+				54EEFEA82B9F32AD005737E1 /* KeychainHelper.swift in Sources */,
 				54B76BDF2B7402D00031A873 /* AppDelegate.swift in Sources */,
 				54B76BF52B74067B0031A873 /* FavouritesVC.swift in Sources */,
 				54CD9B0B2B861C0E002C3DBA /* UserProfileFromSearchVC.swift in Sources */,
