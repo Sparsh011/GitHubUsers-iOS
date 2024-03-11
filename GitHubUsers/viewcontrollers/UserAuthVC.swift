@@ -11,6 +11,7 @@ import Lottie
 class UserAuthVC: UIViewController, ResponseDelegate {
     func didFetchData<T>(_ response: T) {
         DispatchQueue.main.async {
+            print("here with details - \(response as? GitHubAuthResponse)")
             self.configureUIFor(user: response as? GitHubAuthResponse)
         }
     }
@@ -94,18 +95,23 @@ class UserAuthVC: UIViewController, ResponseDelegate {
     private func configureUIFor(user: GitHubAuthResponse?) {
         print("Here with \(user)")
         animationView!.removeFromSuperview()
+        loginLabel.removeFromSuperview()
+        loginButton.removeFromSuperview()
         
         guard let user = user else {
             print("Unable to get user")
             return
         }
         
-        configureAvatar(forUrl: user.avatarUrl)
+        configureAvatar(forUrl: user.userDetails?.avatarUrl)
     }
     
-    private func configureAvatar(forUrl url: String) {
+    private func configureAvatar(forUrl url: String?) {
+        guard let url = url else {
+            return
+        }
         view.addSubview(avatarImageView)
-        
+        print("here with url - \(avatarImageView)")
         NSLayoutConstraint.activate([
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
