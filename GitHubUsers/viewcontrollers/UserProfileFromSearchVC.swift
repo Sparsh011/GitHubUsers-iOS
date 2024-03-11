@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class UserProfileVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
+class UserProfileFromSearchVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
     func didFetchData<T>(_ response: T) {
         if let user = response as? GitHubUser {
             DispatchQueue.main.async { [weak self] in

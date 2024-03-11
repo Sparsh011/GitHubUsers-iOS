@@ -12,7 +12,7 @@
 		542C603C2B8A3EBE00ADD718 /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */; };
 		542C603E2B8A480400ADD718 /* GitHubFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603D2B8A480400ADD718 /* GitHubFollower.swift */; };
 		54820C992B933CE100020897 /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C982B933CE100020897 /* UtilFunctions.swift */; };
-		54820C9B2B934BF800020897 /* YourProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C9A2B934BF800020897 /* YourProfileVC.swift */; };
+		54820C9B2B934BF800020897 /* UserAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C9A2B934BF800020897 /* UserAuthVC.swift */; };
 		54B76BDF2B7402D00031A873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BDE2B7402D00031A873 /* AppDelegate.swift */; };
 		54B76BE12B7402D00031A873 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BE02B7402D00031A873 /* SceneDelegate.swift */; };
 		54B76BE32B7402D00031A873 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76BE22B7402D00031A873 /* SearchVC.swift */; };
@@ -25,7 +25,7 @@
 		54CD9B052B853406002C3DBA /* GHNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD9B042B853406002C3DBA /* GHNetworkHelper.swift */; };
 		54CD9B072B8536A3002C3DBA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD9B062B8536A3002C3DBA /* BaseViewModel.swift */; };
 		54CD9B092B861753002C3DBA /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD9B082B861753002C3DBA /* GitHubUser.swift */; };
-		54CD9B0B2B861C0E002C3DBA /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD9B0A2B861C0E002C3DBA /* UserProfileVC.swift */; };
+		54CD9B0B2B861C0E002C3DBA /* UserProfileFromSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CD9B0A2B861C0E002C3DBA /* UserProfileFromSearchVC.swift */; };
 		54DA8F4F2B8766D1002E25BB /* ResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DA8F4E2B8766D1002E25BB /* ResponseDelegate.swift */; };
 		54DA8F512B87DC5E002E25BB /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DA8F502B87DC5E002E25BB /* CustomToast.swift */; };
 		54E333F42B90AB1A00FF52B4 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E333F32B90AB1A00FF52B4 /* loader.json */; };
@@ -39,7 +39,7 @@
 		542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		542C603D2B8A480400ADD718 /* GitHubFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollower.swift; sourceTree = "<group>"; };
 		54820C982B933CE100020897 /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
-		54820C9A2B934BF800020897 /* YourProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileVC.swift; sourceTree = "<group>"; };
+		54820C9A2B934BF800020897 /* UserAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthVC.swift; sourceTree = "<group>"; };
 		54B76BDB2B7402D00031A873 /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B76BDE2B7402D00031A873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54B76BE02B7402D00031A873 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		54CD9B042B853406002C3DBA /* GHNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHNetworkHelper.swift; sourceTree = "<group>"; };
 		54CD9B062B8536A3002C3DBA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		54CD9B082B861753002C3DBA /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
-		54CD9B0A2B861C0E002C3DBA /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		54CD9B0A2B861C0E002C3DBA /* UserProfileFromSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileFromSearchVC.swift; sourceTree = "<group>"; };
 		54DA8F4E2B8766D1002E25BB /* ResponseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDelegate.swift; sourceTree = "<group>"; };
 		54DA8F502B87DC5E002E25BB /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
 		54E333F32B90AB1A00FF52B4 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -138,9 +138,9 @@
 			children = (
 				54B76BE22B7402D00031A873 /* SearchVC.swift */,
 				54B76BF42B74067B0031A873 /* FavouritesVC.swift */,
-				54CD9B0A2B861C0E002C3DBA /* UserProfileVC.swift */,
+				54CD9B0A2B861C0E002C3DBA /* UserProfileFromSearchVC.swift */,
 				542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */,
-				54820C9A2B934BF800020897 /* YourProfileVC.swift */,
+				54820C9A2B934BF800020897 /* UserAuthVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				54CD9B052B853406002C3DBA /* GHNetworkHelper.swift in Sources */,
 				54B76BDF2B7402D00031A873 /* AppDelegate.swift in Sources */,
 				54B76BF52B74067B0031A873 /* FavouritesVC.swift in Sources */,
-				54CD9B0B2B861C0E002C3DBA /* UserProfileVC.swift in Sources */,
+				54CD9B0B2B861C0E002C3DBA /* UserProfileFromSearchVC.swift in Sources */,
 				54E333F72B90B5A800FF52B4 /* GHUserFieldValue.swift in Sources */,
 				54B76BF72B7407B80031A873 /* GHFButton.swift in Sources */,
 				542C603C2B8A3EBE00ADD718 /* FollowersVC.swift in Sources */,
@@ -332,7 +332,7 @@
 				54B76BF92B7407C90031A873 /* GHFTextField.swift in Sources */,
 				54CD9B092B861753002C3DBA /* GitHubUser.swift in Sources */,
 				54820C992B933CE100020897 /* UtilFunctions.swift in Sources */,
-				54820C9B2B934BF800020897 /* YourProfileVC.swift in Sources */,
+				54820C9B2B934BF800020897 /* UserAuthVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

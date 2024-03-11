@@ -110,7 +110,7 @@ class SearchVC: UIViewController {
         if username.count > 0 {
             let apiRoute = "/users/\(username)"
             
-            let userProfileVC = UserProfileVC(username: username, apiRoute: apiRoute)
+            let userProfileVC = UserProfileFromSearchVC(username: username, apiRoute: apiRoute)
             userProfileVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(userProfileVC, animated: true)

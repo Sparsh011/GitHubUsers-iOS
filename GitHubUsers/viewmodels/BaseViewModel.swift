@@ -90,59 +90,31 @@ class BaseViewModel {
         }
     }
     
-    func getAccessToken(from code: String) {
+    func loginUser(from code: String) {
         if !code.isEmpty {
             GHNetworkHelper.shared.fetchData(
-                method: "POST",
-                headers: ["Accept" : "application/json"],
+                method: "GET",
                 requestParams: [
-                    "client_id": "1c91fdb72c57a551a942",
-                    "client_secret": "",
                     "code": code
                 ],
-                baseUrl: Constants.GithubAuthAPIBaseURL,
-                apiRoute: Constants.GithubAuthAPIRoute,
+                baseUrl: Constants.SharedServerBaseURL,
+                apiRoute: Constants.SharedServerLoginApiRoute,
                 completion: { [weak self] (data, response, error) in
                     guard let self = self else { return }
                     
                     guard let data = data else {
                         let noDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
-                        print("no data error - \(noDataError)")
+                        responseDelegate?.didFailFetchingData(noDataError)
                         return
                     }
-                    
-                    print("Access Token Data - \(String(data: data, encoding: .utf8) ?? "nil")")
                     
                     do {
                         let decoder = JSONDecoder()
                         decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        let accessTokenResponse = try decoder.decode(AccessTokenResponse.self, from: data)
-                        validateUserDetails(with: accessTokenResponse.accessToken)
+                        let userAuthResponse = try decoder.decode(GitHubAuthResponse.self, from: data)
+                        responseDelegate?.didFetchData(userAuthResponse)
                     } catch {
                         print("Error in decoding - \(error)")
-                    }
-                }
-            )
-        }
-    }
-    
-    func validateUserDetails(with accessToken: String) {
-        if !accessToken.isEmpty {
-            GHNetworkHelper.shared.fetchData(
-                method: "GET",
-                headers: [
-                    "Authorization": "Bearer \(accessToken)"
-                ],
-                baseUrl: Constants.GithubAPIBaseURL,
-                apiRoute: "/user",
-                completion: { [weak self] (data, response, error) in
-                    //                    print("user details - \(String(data: data!, encoding: .utf8) ?? "nil")")
-                    if let data = data {
-                        print("user details - \(String(data: data, encoding: .utf8) ?? "nil")")
-                    }
-                    
-                    if let error = error {
-                        print("Error - \(error.localizedDescription)")
                     }
                 }
             )

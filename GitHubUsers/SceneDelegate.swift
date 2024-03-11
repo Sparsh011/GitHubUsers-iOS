@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createProfileNC() -> UINavigationController {
-        let yourProfileVC = YourProfileVC()
+        let yourProfileVC = UserAuthVC()
         yourProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 1)
         
         return UINavigationController(rootViewController: yourProfileVC)
@@ -84,7 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         for context in URLContexts {
             if UtilFunctions.shared.isAuthDeepLink(context.url.absoluteURL) {
                 print("Proceed with auth with code - \(context.url.queryParameters?["code"])")
-                BaseViewModel.shared.getAccessToken(from: context.url.queryParameters?["code"] ?? "")
+                BaseViewModel.shared.loginUser(from: context.url.queryParameters?["code"] ?? "")
             }
             break
         }
