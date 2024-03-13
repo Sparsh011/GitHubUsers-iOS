@@ -32,6 +32,9 @@
 		54E333F72B90B5A800FF52B4 /* GHUserFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */; };
 		54E333F92B90B5BA00FF52B4 /* GHUserFieldHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */; };
 		54EEFEA82B9F32AD005737E1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFEA72B9F32AD005737E1 /* KeychainHelper.swift */; };
+		54FC63D72BA1BB19001E70CA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC63D62BA1BB19001E70CA /* AuthViewModel.swift */; };
+		54FC63D92BA1BFF7001E70CA /* CustomLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC63D82BA1BFF7001E70CA /* CustomLottieView.swift */; };
+		54FC63DB2BA1C742001E70CA /* GHAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC63DA2BA1C742001E70CA /* GHAvatarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserFieldValue.swift; sourceTree = "<group>"; };
 		54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserFieldHeader.swift; sourceTree = "<group>"; };
 		54EEFEA72B9F32AD005737E1 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		54FC63D62BA1BB19001E70CA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		54FC63D82BA1BFF7001E70CA /* CustomLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLottieView.swift; sourceTree = "<group>"; };
+		54FC63DA2BA1C742001E70CA /* GHAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAvatarImageView.swift; sourceTree = "<group>"; };
 		B1B2EF5E224A6FAAACCEB836 /* Pods-GHFollowersSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHFollowersSA.release.xcconfig"; path = "Target Support Files/Pods-GHFollowersSA/Pods-GHFollowersSA.release.xcconfig"; sourceTree = "<group>"; };
 		F33CEB31946875520D3465C2 /* Pods-GHFollowersSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHFollowersSA.debug.xcconfig"; path = "Target Support Files/Pods-GHFollowersSA/Pods-GHFollowersSA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +137,8 @@
 				54DA8F502B87DC5E002E25BB /* CustomToast.swift */,
 				54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */,
 				54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */,
+				54FC63D82BA1BFF7001E70CA /* CustomLottieView.swift */,
+				54FC63DA2BA1C742001E70CA /* GHAvatarImageView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				54CD9B062B8536A3002C3DBA /* BaseViewModel.swift */,
+				54FC63D62BA1BB19001E70CA /* AuthViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -334,8 +343,11 @@
 				542C603E2B8A480400ADD718 /* GitHubFollower.swift in Sources */,
 				54B76BE12B7402D00031A873 /* SceneDelegate.swift in Sources */,
 				54B76BF92B7407C90031A873 /* GHFTextField.swift in Sources */,
+				54FC63D92BA1BFF7001E70CA /* CustomLottieView.swift in Sources */,
+				54FC63D72BA1BB19001E70CA /* AuthViewModel.swift in Sources */,
 				54CD9B092B861753002C3DBA /* GitHubUser.swift in Sources */,
 				54820C992B933CE100020897 /* UtilFunctions.swift in Sources */,
+				54FC63DB2BA1C742001E70CA /* GHAvatarImageView.swift in Sources */,
 				54820C9B2B934BF800020897 /* UserAuthVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

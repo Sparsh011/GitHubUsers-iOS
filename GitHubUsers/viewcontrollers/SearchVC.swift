@@ -40,8 +40,8 @@ class SearchVC: UIViewController {
         NSLayoutConstraint.activate([
             logoIV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoIV.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoIV.heightAnchor.constraint(equalToConstant: 200),
-            logoIV.widthAnchor.constraint(equalToConstant: 250)
+            logoIV.heightAnchor.constraint(equalToConstant: 175),
+            logoIV.widthAnchor.constraint(equalToConstant: 225)
         ])
     }
     

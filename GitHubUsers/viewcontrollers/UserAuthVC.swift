@@ -9,61 +9,41 @@ import UIKit
 import Lottie
 
 class UserAuthVC: UIViewController, ResponseDelegate {
-    func didFetchData<T>(_ response: T) {
-        DispatchQueue.main.async {
-            print("here with details - \(response as? GitHubAuthResponse)")
-            self.configureUIFor(user: response as? GitHubAuthResponse)
-        }
-    }
     
-    func didFailFetchingData(_ error: Error) {
-        DispatchQueue.main.async {
-            self.configureUIFor(error: error)
-        }
-    }
-    
-    let loginButton = GHFButton(backgroundColor: .systemBlue, buttonTitle: "Login With GitHub ")
-    let loginLabel = UILabel()
-    private let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private let loginButton = GHFButton(backgroundColor: .systemBlue, buttonTitle: "Login With GitHub ")
+    private let loginLabel = UILabel()
+    private let avatarImageView = GHAvatarImageView()
     private var animationView: LottieAnimationView?
+    let logoIV = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        BaseViewModel.shared.responseDelegate = self
+        AuthViewModel.shared.responseDelegate = self
         
-        configureLoginButtonAndLabel()
+        configureUI()
     }
     
-    private func configureLoginButtonAndLabel() {
-        loginLabel.text = "Login to view your GitHub profile stats"
-        loginLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loginLabel)
+    private func configureUI() {
+        if let accessToken = getAccessToken() {
+            AuthViewModel.shared.getUserDetailsFrom(accessToken: accessToken)
+            showLoader()
+        } else {
+            showLoginUI()
+        }
+    }
+    
+    private func getAccessToken() -> String? {
+        if let data = KeychainHelper.getData(forService: Bundle.main.bundleIdentifier ?? Constants.FallbackKeychainService, account: Constants.GitHubAccessTokenAccount),
+           let accessToken = String(data: data, encoding: .utf8) {
+            return accessToken
+        }
         
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loginButton)
-        
-        NSLayoutConstraint.activate([
-            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            
-            loginButton.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 40),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        loginButton.addTarget(self, action: #selector(startLoginWithGithub), for: .touchUpInside)
+        return nil
     }
     
     @objc func startLoginWithGithub() {
-        let githubOAuthAuthorizeUrl = "\(Constants.githubOAuthBaseUrl)\(Constants.githubOAuthApiRoute)?client_id=\(Constants.githubOAuthClientId)"
+        let githubOAuthAuthorizeUrl = "\(Constants.GitHubOAuthBaseUrl)\(Constants.GitHubOAuthApiRoute)?client_id=\(Constants.GitHubOAuthClientId)"
         if let url = URL(string: githubOAuthAuthorizeUrl) {
             UIApplication.shared.open(url)
             DispatchQueue.main.async {
@@ -75,12 +55,8 @@ class UserAuthVC: UIViewController, ResponseDelegate {
     private func showLoader() {
         animationView = .init(name: "loader")
         
-        animationView!.translatesAutoresizingMaskIntoConstraints = false
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.loopMode = .loop
-        animationView!.animationSpeed = 1
-        
         view.addSubview(animationView!)
+        animationView?.configureAnimationView()
         
         NSLayoutConstraint.activate([
             animationView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -89,11 +65,10 @@ class UserAuthVC: UIViewController, ResponseDelegate {
             animationView!.heightAnchor.constraint(equalToConstant: 60)
         ])
         
-        animationView!.play()
+        animationView?.play()
     }
     
     private func configureUIFor(user: GitHubAuthResponse?) {
-        print("Here with \(user)")
         animationView!.removeFromSuperview()
         loginLabel.removeFromSuperview()
         loginButton.removeFromSuperview()
@@ -111,7 +86,7 @@ class UserAuthVC: UIViewController, ResponseDelegate {
             return
         }
         view.addSubview(avatarImageView)
-        print("here with url - \(avatarImageView)")
+
         NSLayoutConstraint.activate([
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -165,5 +140,50 @@ class UserAuthVC: UIViewController, ResponseDelegate {
             errorLabel.topAnchor.constraint(equalTo: errorIV.bottomAnchor, constant: 20),
             errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    private func showLoginUI() {
+        loginLabel.text = "Login with GitHub to view your profile every time you open the app."
+        loginLabel.translatesAutoresizingMaskIntoConstraints = false
+        loginLabel.numberOfLines = 0
+        loginLabel.textAlignment = .center
+        view.addSubview(loginLabel)
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginButton)
+        
+        logoIV.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoIV)
+        logoIV.image = UIImage(named: Constants.GitHubLogoName)
+        
+        NSLayoutConstraint.activate([
+            logoIV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoIV.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoIV.heightAnchor.constraint(equalToConstant: 175),
+            logoIV.widthAnchor.constraint(equalToConstant: 225),
+            
+            loginLabel.topAnchor.constraint(equalTo: logoIV.bottomAnchor, constant: 50),
+            loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            loginLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            
+            loginButton.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 40),
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            loginButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        loginButton.addTarget(self, action: #selector(startLoginWithGithub), for: .touchUpInside)
+    }
+    
+    func didFetchData<T>(_ response: T) {
+        DispatchQueue.main.async {
+            self.configureUIFor(user: response as? GitHubAuthResponse)
+        }
+    }
+    
+    func didFailFetchingData(_ error: Error) {
+        DispatchQueue.main.async {
+            self.configureUIFor(error: error)
+        }
     }
 }

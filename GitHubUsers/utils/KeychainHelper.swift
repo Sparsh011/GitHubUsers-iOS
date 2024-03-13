@@ -7,13 +7,15 @@
 
 import Foundation
 /**
-    * kSecClass — A key that represent type of data being saved.  `kSecClassGenericPassword` indicates that the data we are saving is a generic            password and can be used to store tokens
+    * kSecClass — A key that represent type of data being saved.  `kSecClassGenericPassword` indicates that the data we are saving is a generic password and can be used to store tokens
  
     * kSecValuedata — A key that represent the data being saved to keychain
  
-    * kSecAttributeService & kSecAttrAccount the two key are mandatory. The values for both of these keys will act as the primary key for the data being            saved. In other words, we will use them to retrieve the saved data from the keychain later on. There is no hard defined rule what value to use for both         kSecAttrService and kSecAttrAccount. However, it is recommended to use strings that are meaningful. For example, if we are saving the login access        token, we can set kSecAttrService as “access-token” and kSecAttrAccount as “app-name“.
+    * kSecAttributeService & kSecAttrAccount the two key are mandatory. The values for both of these keys will act as the primary key for the data being saved. In other words, we will use them to retrieve the saved data from the keychain later on.
+      There is no hard defined rule what value to use for both kSecAttrService and kSecAttrAccount. However, it is recommended to use strings that are meaningful. For example, if we are saving the login access token, we can set kSecAttrService as app name
+      and kSecAttrAccount as key  “access-token”.
  
-    * CFTypeRef serves as a placeholder for other true Core Foundation objects (e.g., CFString, CFArray, etc.). Similar to Any, but Any is used in swift only        and CFTypeRef is part of core foundation(C based framework in mac and ios)
+    * CFTypeRef serves as a placeholder for other true Core Foundation objects (e.g., CFString, CFArray, etc.). Similar to Any, but Any is used in swift  and CFTypeRef is part of core foundation(C based framework in mac and ios)
  */
 
 class KeychainHelper {

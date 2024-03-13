@@ -83,8 +83,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
             if UtilFunctions.shared.isAuthDeepLink(context.url.absoluteURL) {
-                print("Proceed with auth with code - \(context.url.queryParameters?["code"])")
-                BaseViewModel.shared.loginUser(from: context.url.queryParameters?["code"] ?? "")
+                AuthViewModel.shared.loginUserFrom(code: context.url.queryParameters?["code"] ?? "")
             }
             break
         }

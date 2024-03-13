@@ -50,6 +50,8 @@ class GHNetworkHelper {
             let bodyData = try? JSONSerialization.data(withJSONObject: bodyParams)
             request.httpBody = bodyData
         }
+        
+        request.timeoutInterval = 90
           
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             completion(data, response, error)
