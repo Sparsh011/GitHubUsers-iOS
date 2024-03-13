@@ -40,8 +40,8 @@ class SearchVC: UIViewController {
         NSLayoutConstraint.activate([
             logoIV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoIV.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoIV.heightAnchor.constraint(equalToConstant: 200),
-            logoIV.widthAnchor.constraint(equalToConstant: 250)
+            logoIV.heightAnchor.constraint(equalToConstant: 175),
+            logoIV.widthAnchor.constraint(equalToConstant: 225)
         ])
     }
     
@@ -110,7 +110,7 @@ class SearchVC: UIViewController {
         if username.count > 0 {
             let apiRoute = "/users/\(username)"
             
-            let userProfileVC = UserProfileVC(username: username, apiRoute: apiRoute)
+            let userProfileVC = UserProfileFromSearchVC(username: username, apiRoute: apiRoute)
             userProfileVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(userProfileVC, animated: true)

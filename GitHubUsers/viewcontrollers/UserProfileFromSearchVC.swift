@@ -8,21 +8,7 @@
 import UIKit
 import Lottie
 
-class UserProfileVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
-    func didFetchData<T>(_ response: T) {
-        if let user = response as? GitHubUser {
-            DispatchQueue.main.async { [weak self] in
-                self?.configureUIFor(user: user)
-            }
-        }
-    }
-    
-    func didFailFetchingData(_ error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            print("error - \(error)")
-            self?.configureUIFor(error: error)
-        }
-    }
+class UserProfileFromSearchVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -51,13 +37,7 @@ class UserProfileVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
         return label
     }()
     
-    private let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private let avatarImageView = GHAvatarImageView()
     
     private let bioHeadingLabel = GHUserFieldHeader(text: "Bio")
     private let bioLabel = GHUserFieldValue()
@@ -122,10 +102,7 @@ class UserProfileVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
     private func configureLottieAnimation() {
         animationView = .init(name: "loader")
         
-        animationView!.translatesAutoresizingMaskIntoConstraints = false
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.loopMode = .loop
-        animationView!.animationSpeed = 1
+        animationView?.configureAnimationView()
         
         view.addSubview(animationView!)
         
@@ -256,5 +233,20 @@ class UserProfileVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    func didFetchData<T>(_ response: T) {
+        if let user = response as? GitHubUser {
+            DispatchQueue.main.async { [weak self] in
+                self?.configureUIFor(user: user)
+            }
+        }
+    }
+    
+    func didFailFetchingData(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            print("error - \(error)")
+            self?.configureUIFor(error: error)
+        }
     }
 }
