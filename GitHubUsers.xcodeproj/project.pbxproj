@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F56E7600744892668294F83 /* Pods_GitHubUsers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92E1ADE1BBBBDDE885A1BE5 /* Pods_GitHubUsers.framework */; };
 		541A473F2B98ACE800D0F7DD /* GitHubAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A473E2B98ACE800D0F7DD /* GitHubAuthResponse.swift */; };
+		541C82CC2BA86EFD00C61749 /* GHUserProfileVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C82CB2BA86EFD00C61749 /* GHUserProfileVerticalStackView.swift */; };
+		541C82CE2BA8712A00C61749 /* GHUsernameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C82CD2BA8712A00C61749 /* GHUsernameLabel.swift */; };
 		542C603C2B8A3EBE00ADD718 /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */; };
 		542C603E2B8A480400ADD718 /* GitHubFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C603D2B8A480400ADD718 /* GitHubFollower.swift */; };
 		54820C992B933CE100020897 /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54820C982B933CE100020897 /* UtilFunctions.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		0F0C05D76EA9AEF9ECEAE910 /* Pods-GitHubUsers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUsers.release.xcconfig"; path = "Target Support Files/Pods-GitHubUsers/Pods-GitHubUsers.release.xcconfig"; sourceTree = "<group>"; };
 		541A473E2B98ACE800D0F7DD /* GitHubAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAuthResponse.swift; sourceTree = "<group>"; };
+		541C82CB2BA86EFD00C61749 /* GHUserProfileVerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserProfileVerticalStackView.swift; sourceTree = "<group>"; };
+		541C82CD2BA8712A00C61749 /* GHUsernameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsernameLabel.swift; sourceTree = "<group>"; };
 		542C603B2B8A3EBE00ADD718 /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		542C603D2B8A480400ADD718 /* GitHubFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollower.swift; sourceTree = "<group>"; };
 		54820C982B933CE100020897 /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
@@ -96,6 +100,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		541C82CA2BA86E9900C61749 /* UserProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				54C4E77A2BA3172D0030F607 /* GHUserProfile.swift */,
+				54FC63DA2BA1C742001E70CA /* GHAvatarImageView.swift */,
+				541C82CB2BA86EFD00C61749 /* GHUserProfileVerticalStackView.swift */,
+				541C82CD2BA8712A00C61749 /* GHUsernameLabel.swift */,
+			);
+			path = UserProfileViews;
+			sourceTree = "<group>";
+		};
 		54B76BD22B7402D00031A873 = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +151,13 @@
 		54B76BF22B7405380031A873 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				541C82CA2BA86E9900C61749 /* UserProfileViews */,
 				54B76BF62B7407B80031A873 /* GHFButton.swift */,
 				54B76BF82B7407C90031A873 /* GHFTextField.swift */,
 				54DA8F502B87DC5E002E25BB /* CustomToast.swift */,
 				54E333F62B90B5A800FF52B4 /* GHUserFieldValue.swift */,
 				54E333F82B90B5BA00FF52B4 /* GHUserFieldHeader.swift */,
 				54FC63D82BA1BFF7001E70CA /* CustomLottieView.swift */,
-				54FC63DA2BA1C742001E70CA /* GHAvatarImageView.swift */,
-				54C4E77A2BA3172D0030F607 /* GHUserProfile.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -333,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54DA8F512B87DC5E002E25BB /* CustomToast.swift in Sources */,
+				541C82CC2BA86EFD00C61749 /* GHUserProfileVerticalStackView.swift in Sources */,
 				54B76BE32B7402D00031A873 /* SearchVC.swift in Sources */,
 				541A473F2B98ACE800D0F7DD /* GitHubAuthResponse.swift in Sources */,
 				54CD9B052B853406002C3DBA /* GHNetworkHelper.swift in Sources */,
@@ -357,6 +372,7 @@
 				54820C992B933CE100020897 /* UtilFunctions.swift in Sources */,
 				54FC63DB2BA1C742001E70CA /* GHAvatarImageView.swift in Sources */,
 				54820C9B2B934BF800020897 /* UserAuthVC.swift in Sources */,
+				541C82CE2BA8712A00C61749 /* GHUsernameLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,5 +28,23 @@ class GHAvatarImageView: UIImageView {
         contentMode = .scaleAspectFit
         clipsToBounds = true
     }
+    
+    func loadImage(fromUrl url: URL?) {
+        guard let url = url else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
+            if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+                return
+            }
+            guard let data = data, let image = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                self?.image = image
+            }
+        }.resume()
+    }
+    
 
 }

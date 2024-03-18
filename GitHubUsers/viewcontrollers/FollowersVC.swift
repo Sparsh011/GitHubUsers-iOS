@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersVC: UIViewController, ResponseDelegate {
+class FollowersVC: UIViewController, ResponseDelegate, UIScrollViewDelegate {
     func didFetchData<T>(_ response: T) {
         if let users = response as? [GitHubFollower] {
             print("Received array of GitHubUser: \(users)")
@@ -37,7 +37,16 @@ class FollowersVC: UIViewController, ResponseDelegate {
         view.backgroundColor = .systemBackground
         BaseViewModel.shared.responseDelegate = self
         
-        BaseViewModel.shared.getFollowersFor(followersApiRoute: followersApiRoute)
+//        BaseViewModel.shared.getFollowersFor(followersApiRoute: followersApiRoute)
+
+    }
+    
+    private func configureFollowersVC() {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let dummyUser = GitHubUser(
             login: "sparsh011",
@@ -74,19 +83,14 @@ class FollowersVC: UIViewController, ResponseDelegate {
             updatedAt: "2022-02-08T08:16:12Z"
         )
 
-        let profile = GHUserProfile(profile: dummyUser)
+        let profile = GHUserProfile(profile: dummyUser, delegate: self)
         view.addSubview(profile)
-        profile.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            profile.widthAnchor.constraint(equalTo: view.widthAnchor),
+            profile.heightAnchor.constraint(equalTo: view.heightAnchor),
             profile.topAnchor.constraint(equalTo: view.topAnchor),
-            profile.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            profile.heightAnchor.constraint(equalToConstant: 500),
-            profile.widthAnchor.constraint(equalToConstant: 300)
+            profile.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-    
-    private func configureFollowersVC() {
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
